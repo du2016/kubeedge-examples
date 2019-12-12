@@ -137,13 +137,13 @@ func main() {
 		}
 		// print temperature and humidity
 		if ctx.Err() == nil {
-			lg.Infof("Sensor = %v: Temperature = %v*C, Humidity = %v%% (retried %d times)",
+			lg.Infof("Sensor = %v: Temperature = %vC, Humidity = %v%% (retried %d times)",
 				sensorType, temperature, humidity, retried)
 		}
 
 		deviceTwinUpdate := "$hw/events/device/" + "temperature" + "/twin/update"
 
-		updateMessage:=createActualUpdateMessage(strconv.Itoa(int(temperature))+"*C")
+		updateMessage:=createActualUpdateMessage(strconv.Itoa(int(temperature))+"C")
 		twinUpdateBody, _ := json.Marshal(updateMessage)
 
 		err = cli.Publish(&client.PublishOptions{
