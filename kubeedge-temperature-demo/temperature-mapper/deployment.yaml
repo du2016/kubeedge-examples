@@ -19,7 +19,7 @@ spec:
         name: "raspberry-pi"
       containers:
       - name: temperature
-        image: kubeedge/temperature-mapper-arm32:v1
+        image: rocdu/temperature-mapper
         imagePullPolicy: IfNotPresent
         securityContext:
           privileged: true
